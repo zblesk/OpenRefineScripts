@@ -1,0 +1,84 @@
+[
+  {
+    "op": "core/column-addition",
+    "description": "Create column Bookshelves at index 26 based on column I've read list using expression jython:return ('read' if value == 'True' else 'to-read')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Bookshelves",
+    "columnInsertIndex": 26,
+    "baseColumnName": "I've read list",
+    "expression": "jython:return ('read' if value == 'True' else 'to-read')",
+    "onError": "store-error"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Author to Author l-f",
+    "oldColumnName": "Author",
+    "newColumnName": "Author l-f"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Edition Author to Author",
+    "oldColumnName": "Edition Author",
+    "newColumnName": "Author"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Rating to My Rating",
+    "oldColumnName": "Rating",
+    "newColumnName": "My Rating"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column PublicationYear to Year Published",
+    "oldColumnName": "PublicationYear",
+    "newColumnName": "Year Published"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Note to Private Notes",
+    "oldColumnName": "Note",
+    "newColumnName": "Private Notes"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Date Read at index 15 based on column DateRead using expression jython:parts = value.split('/')[::-1]\nreturn '/'.join([d.zfill(2) for d in [parts[0], parts[2], parts[1]]])",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Date Read",
+    "columnInsertIndex": 15,
+    "baseColumnName": "DateRead",
+    "expression": "jython:parts = value.split('/')[::-1]\nreturn '/'.join([d.zfill(2) for d in [parts[0], parts[2], parts[1]]])",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Date Added at index 22 based on column DateAdded using expression jython:parts = value.split('/')[::-1]\nreturn '/'.join([d.zfill(2) for d in [parts[0], parts[2], parts[1]]])",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Date Added",
+    "columnInsertIndex": 22,
+    "baseColumnName": "DateAdded",
+    "expression": "jython:parts = value.split('/')[::-1]\nreturn '/'.join([d.zfill(2) for d in [parts[0], parts[2], parts[1]]])",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Original Purchase Date at index 13 based on column DatePurchased using expression jython:parts = value.split('/')[::-1]\nreturn '/'.join([d.zfill(2) for d in [parts[0], parts[2], parts[1]]])",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Original Purchase Date",
+    "columnInsertIndex": 13,
+    "baseColumnName": "DatePurchased",
+    "expression": "jython:parts = value.split('/')[::-1]\nreturn '/'.join([d.zfill(2) for d in [parts[0], parts[2], parts[1]]])",
+    "onError": "set-to-blank"
+  }
+]
