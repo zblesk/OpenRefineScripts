@@ -80,5 +80,109 @@
     "baseColumnName": "DatePurchased",
     "expression": "jython:parts = value.split('/')[::-1]\nreturn '/'.join([d.zfill(2) for d in [parts[0], parts[2], parts[1]]])",
     "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Date Added using expression value.toDate()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Date Added",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DateAdded",
+    "columnName": "DateAdded"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "selectNonTime": true,
+          "expression": "value",
+          "selectBlank": true,
+          "selectError": true,
+          "selectTime": true,
+          "name": "Date Added",
+          "from": 1281564000000,
+          "to": 1418657562000,
+          "type": "timerange",
+          "columnName": "Date Added"
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DatePurchased",
+    "columnName": "DatePurchased"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PurchasePrice",
+    "columnName": "PurchasePrice"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DateRead",
+    "columnName": "DateRead"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Signed",
+    "columnName": "Signed"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Loaned",
+    "columnName": "Loaned"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LoanedTo",
+    "columnName": "LoanedTo"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LoanedDate",
+    "columnName": "LoanedDate"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LoanDueDate",
+    "columnName": "LoanDueDate"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Private",
+    "columnName": "Private"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column I plan to read list",
+    "columnName": "I plan to read list"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column I've read list",
+    "columnName": "I've read list"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column I own list",
+    "columnName": "I own list"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column I'm reading list",
+    "columnName": "I'm reading list"
   }
 ]
